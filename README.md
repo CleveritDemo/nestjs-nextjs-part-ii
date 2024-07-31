@@ -745,5 +745,48 @@ export default Layout;
 
 ## Step 10: Create a Cart Page
 
-> Create a card page to show the products added to the cart and also sumarize the total amount of the products added.
+> Create a card component to show the products added to the cart and also sumarize the total amount of the products added.
+
+```tsx
+// src/components/CartCard.tsx
+import React from "react";
+import { useCartStore } from "../store/useCartStore";
+import { Card, List, Button } from "rsuite";
+
+const CartCard: React.FC = () => {
+  const cartItems = useCartStore((state) => state.cart);
+
+  const totalAmount = cartItems.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
+
+  return (
+    <Card bordered style={{ width: 300 }}>
+      <h4>Shopping Cart</h4>
+      {cartItems.length > 0 ? (
+        <List bordered>
+          {cartItems.map((item, index) => (
+            <List.Item key={index} index={index}>
+              <div>
+                <strong>{item.name}</strong>
+                <p>Quantity: {item.quantity}</p>
+                <p>Price: ${item.price.toFixed(2)}</p>
+                <p>Subtotal: ${(item.price * item.quantity).toFixed(2)}</p>
+              </div>
+            </List.Item>
+          ))}
+        </List>
+      ) : (
+        <p>Your cart is empty.</p>
+      )}
+      <div className="mt-4">
+        <h5>Total Amount: ${totalAmount.toFixed(2)}</h5>
+        <Button appearance="primary">Proceed to Checkout</Button>
+      </div>
+    </Card>
+  );
+};
+
+export default CartCard;
+```
 
