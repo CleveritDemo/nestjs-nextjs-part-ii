@@ -475,6 +475,11 @@ module.exports = nextTranslate({
 > how to make blur image meanwhile load resource with next/image
 
 - Use the `placeholder` attribute in the `next/image` component to show a blurred image while the main image is loading.
+- Use this base64 image as the value for the `blurDataURL` attribute.
+
+```tsx
+blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAJ0lEQVR4nGPY2fXjv458/H9Bbtf/IDbD/7v//8/Mvfq/J+nEfxAbAF3NFsFiuaE1AAAAAElFTkSuQmCC"
+```
 
 ```tsx
 import React, { useState } from "react";
@@ -625,7 +630,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 export default ProductCard;
 ```	
 
-## Add a counter Component to show the number of items in the cart
+### Add a counter Component to show the number of items in the cart
 
 > how to add counter of products on navbar in #file:layout.tsx
 
