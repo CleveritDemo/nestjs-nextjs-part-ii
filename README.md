@@ -31,6 +31,31 @@
 - Install deps using yarn `yarn install`
 - Check if the project is running `yarn dev`
 
+### Troubleshooting
+
+- The package.json could be different because we are working with gen-ai, if you have problems use this.
+
+```json
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "rsuite": "^4.9.0",
+    "tailwindcss": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.0.1",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "autoprefixer": "^10.4.0",
+    "eslint": "^8.5.0",
+    "eslint-config-next": "^12.0.0",
+    "postcss": "^8.4.5",
+    "postcss-preset-env": "^7.3.1",
+    "typescript": "^4.5.4"
+  },
+```
+
 ## Step 2: Create a Layout Component
 
 > @workspace create a layout with navbar and footer using rsuite
