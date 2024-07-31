@@ -36,6 +36,15 @@
 - The package.json could be different because we are working with gen-ai, if you have problems use this.
 
 ```json
+{
+  "name": "my-nextjs-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
   "dependencies": {
     "next": "^14.0.0",
     "react": "^18.0.0",
@@ -54,6 +63,16 @@
     "postcss-preset-env": "^7.3.1",
     "typescript": "^4.5.4"
   },
+  "eslintConfig": {
+    "extends": [
+      "next",
+      "next/core-web-vitals"
+    ]
+  },
+  "browserslist": [
+    "defaults"
+  ]
+}
 ```
 
 ## Step 2: Create a Layout Component
@@ -247,6 +266,7 @@ module.exports = {
 - Update your index page: Update your index page to use the useTranslation hook from next-translate.
 
 ```tsx
+
 // src/pages/index.tsx
 import useTranslation from 'next-translate/useTranslation';
 
@@ -262,6 +282,10 @@ const IndexPage: React.FC = () => {
 
 export default IndexPage;
 ```
+
+### Trobleshooting
+
+- If i18n is not working properly, downgrade page to 1.6.0
 
 ## Step 4: Adding .env Support
 
@@ -820,3 +844,7 @@ const CartCard: React.FC = () => {
 export default CartCard;
 ```
 
+
+## Step 11: Use hookForm to make purchase
+
+> i want to use hookform to make a purchase event in my cart page #file:Cart.tsx
