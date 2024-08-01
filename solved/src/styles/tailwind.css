@@ -1,0 +1,19 @@
+/* tailwind.css */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Add your custom styles here */
+
+/* Example custom styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.text-primary {
+  color: #0070f3;
+}
+
+/* End of custom styles */
