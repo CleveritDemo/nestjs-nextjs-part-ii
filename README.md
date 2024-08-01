@@ -908,8 +908,31 @@ const cartCount = useCartStore((state) => state.getCartQuantity());
 
 ## Step 12: Use hookForm to make purchase (optional)
 
-> i want to use hookform to make a purchase event in my cart page #file:Cart.tsx
+> i want to use hookform to make a purchase event in my cart page #file:Cart.tsx and api/purchase.ts 
 
-## Step 13: Add sound to the cart buttons
+- First create a purcharse function on /api/purchase.ts
+
+```ts
+// src/pages/api/purchase.ts
+import { NextApiRequest, NextApiResponse } from "next";
+
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === "POST") {
+    // Process the purchase
+    res.status(200).json({ message: "Purchase successful!" });
+  } else {
+    res.status(405).json({ message: "Method not allowed" });
+  }
+}
+```
+
+- Now create a hookForm to make the purchase in `layout.tsx`
+
+```tsx
+```
+
+
+
+## Step 13: Add sound to the cart buttons (optional)
 
 > i want to add a sound effect when the user adds a product to the cart using useSound hook
