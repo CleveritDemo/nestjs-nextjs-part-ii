@@ -1,4 +1,4 @@
-# First Activity
+# Second Activity: Create Your Shopping Cart with NextJS
 
 - React with NextJS 
 
@@ -844,7 +844,72 @@ const CartCard: React.FC = () => {
 export default CartCard;
 ```
 
+## Step 11: Manage Quantity of Products and Global State
 
-## Step 11: Use hookForm to make purchase
+> create method on #file:useCartStore.ts that return cart quantity based on items and totalQuantity
+
+```ts
+// src/store/useCartStore.ts
+import { create } from "zustand";
+import { Product as OriginalProduct } from "./pages/api/products";
+
+type Product = OriginalProduct & { quantity: number };
+
+type CartState = {
+  cart: Product[];
+  addToCart: (product: OriginalProduct) => void;
+  removeFromCart: (productId: string) => void;
+  getCartQuantity: () => number;
+};
+
+export const useCartStore = create<CartState>((set, get) => ({
+  cart: [],
+  addToCart: (product) =>
+    set((state) => {
+      const existingProduct = state.cart.find((p) => p.id === product.id);
+      if (existingProduct) {
+        return {
+          cart: state.cart.map((p) =>
+            p.id === product.id ? { ...p, quantity: p.quantity + 1 } : p
+          ),
+        };
+      } else {
+        return { cart: [...state.cart, { ...product, quantity: 1 }] };
+      }
+    }),
+  removeFromCart: (productId) =>
+    set((state) => {
+      const existingProduct = state.cart.find((p) => p.id === productId);
+      if (existingProduct && existingProduct.quantity > 1) {
+        return {
+          cart: state.cart.map((p) =>
+            p.id === productId ? { ...p, quantity: p.quantity - 1 } : p
+          ),
+        };
+      } else {
+        return {
+          cart: state.cart.filter((product) => product.id !== productId),
+        };
+      }
+    }),
+  getCartQuantity: () => {
+    const state = get();
+    return state.cart.reduce((total, product) => total + product.quantity, 0);
+  },
+}));
+
+```
+
+- Now replace the login in `layout.tsx` to use the new method
+
+```tsx
+const cartCount = useCartStore((state) => state.getCartQuantity());
+```
+
+## Step 12: Use hookForm to make purchase (optional)
 
 > i want to use hookform to make a purchase event in my cart page #file:Cart.tsx
+
+## Step 13: Add sound to the cart buttons
+
+> i want to add a sound effect when the user adds a product to the cart using useSound hook
