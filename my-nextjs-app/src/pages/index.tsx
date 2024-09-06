@@ -1,12 +1,14 @@
-import React from 'react';
+// [src/pages/index.tsx](my-nextjs-app/src/pages/index.tsx)
+import useTranslation from "next-translate/useTranslation";
 
-const HomePage: React.FC = () => {
+const IndexPage: React.FC = () => {
+  const { t } = useTranslation("common");
   return (
     <div>
-      <h1>Welcome to my Next.js app!</h1>
-      <p>This is the home page.</p>
+      <span className="text-xl">{t("title")}</span>
+      <p>{t("description")}</p>
     </div>
   );
 };
 
-export default HomePage;
+export default IndexPage;
