@@ -75,6 +75,12 @@
 }
 ```
 
+> ⚠️ In case you encounter any issues with creating the project, you can checkout the `step-1` branch which contains the base project.
+
+```bash
+git checkout step-1
+```
+
 ## Step 2: Create a Layout Component
 
 > @workspace create a layout with navbar and footer using rsuite
@@ -324,6 +330,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
 - Check if the application is running `yarn dev`
 
+
+> ⚠️ In case the message is not displayed, make sure the `.env` file is in the root of the project and restart the server.
+
 ## Step 5: Create mocks with Copilot
 
 > create a mock function that return and array with products, every product has and id, name, description, image and price.
@@ -378,6 +387,16 @@ function getMockProducts(): Product[] {
 }
 ```
 
+> You can save the `Product` type in a file called `Product.ts` in the `src/utils` folder.
+
+> You can save the `getMockProducts` function in a file called `mocks.ts` in the `src/utils` folder.
+
+> In case Copilot does not generate the code to display the products, you can ask Copilot to show you how to do it.
+
+```plaintext
+  How can I display the products on the homepage #file:index.tsx
+```
+
 ## Step 6: Create a Product Card Component
 
 > create a productcard component based on #file:index.tsx
@@ -409,6 +428,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
 export default ProductCard;
 ```
+
+> You can save this component in a file called `ProductCard.tsx` in the `src/components` folder.
+
+> In case Copilot does not generate the code to implement the product card component, you can ask Copilot to show you how to do it.
+
+```plaintext
+  How can I use the product card component #file:ProductCard.tsx on the homepage #file:index.tsx
+``` 
 
 ## Step 7: Add Icons Support
 
@@ -449,6 +476,24 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
 export default ProductCard;
 ```
+
+> ⚠️ En caso de que Copilot no genere código para mostrar algún icono, puedes solicitarle a Copilot que te muestre cómo hacerlo.
+
+```plaintext
+  Cómo puedo mostrar un icono de carrito de compras en el componente de tarjeta de producto #file:ProductCard.tsx
+```
+
+
+### Display Fallback Image on Error
+
+Here we want to display a fallback image in case the main image fails to load. To do this, we ask Copilot to show us how to do it.
+
+```plaintext
+  How can I display a fallback image if the main image fails to load #file:ProductCard.tsx #file:default-fallback-image.png
+```
+> ℹ️ You should copy the image named `default-fallback-image.png` from the `assets` folder in this repository and paste it into the `public` folder of your project.
+
+Apply the changes suggested by Copilot in the `ProductCard.tsx` component to display the fallback image in case the main image fails to load.
 
 ### Troubleshooting
 
@@ -582,7 +627,7 @@ export default ProductCard;
 
 ## Step 8: Create Shopping Cart Component + Zustand
 
-> add zustand support to create a shopping card context
+> @workspace add zustand support to create a shopping card context
 
 - Install zustand `yarn add zustand`
 - Create a Zustand store: Create a new file named useCartStore.ts in your src/store directory (or any preferred directory) to define the Zustand store for the shopping cart.
@@ -616,7 +661,18 @@ export const useCartStore = create<CartState>((set) => ({
       cart: state.cart.filter((product) => product.id !== productId),
     })),
 }));
+
 ```
+
+> Here you can use the previously created Product type. You can do it manually or ask Copilot for help.
+
+Select all the code from useCartStore and ask Copilot to use the previously created Product type.
+
+```plaintext
+  Refactor the code to use the Product type #file:Product.ts #selection
+```
+
+
 - Update the ProductCard component to use the Zustand store:
 
 ```tsx
@@ -679,6 +735,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 export default ProductCard;
 ```	
 
+### Troubleshooting
+
+#### Issues with Zustand Import
+If you encounter issues with importing Zustand, ensure you are importing `create` as follows:
+
+```ts
+import { create } from 'zustand';
+```
+
+
 ### Add a counter Component to show the number of items in the cart
 
 > how to add counter of products on navbar in #file:layout.tsx
@@ -722,7 +788,7 @@ export default Layout;
 
 ## Step 9: Create a Cart Page on Drawer
 
-> i want to create a drawer to see the card content using rsuite 
+> @workspace i want to create a drawer to see the card content using rsuite 
 
 - Import the necessary components from rsuite.
 - Create a state to manage the visibility of the drawer.
@@ -844,6 +910,8 @@ const CartCard: React.FC = () => {
 export default CartCard;
 ```
 
+Once you have created the `CartCard` component, you can add it to the drawer in the `Layout` component or ask Copilot for help to do it.
+
 ## Step 11: Manage Quantity of Products and Global State
 
 > create method on #file:useCartStore.ts that return cart quantity based on items and totalQuantity
@@ -927,10 +995,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 ```
 
 - Now create a hookForm to make the purchase in `layout.tsx`
-
-```tsx
-```
-
 
 
 ## Step 13: Add sound to the cart buttons (optional)
