@@ -146,7 +146,7 @@ export default MyApp;
 
 Check if Tailwind is working properly by adding a Tailwind class to the layout component.
 
-> @workspace why tailwind classes inst working
+> @workspace why aren't the tailwind classes working?
 
 - Suggest install tailwindcss using `yarn add tailwindcss`
 - Check tailwind config `tailwind.config.js`
