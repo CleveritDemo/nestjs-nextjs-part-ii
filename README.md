@@ -7,7 +7,7 @@
 - Create NextJS project using GitHub Copilot from a Scratch.
 - Create a Product List Page and Shopping Cart Page.
 
-<img src="assets/image.png" alt="Shopping Cart" height="600">
+<img src="assets/app-preview.gif" alt="Shopping Cart" height="300">
 
 
 # Backend Development

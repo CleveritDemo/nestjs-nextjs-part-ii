@@ -7,7 +7,7 @@
 - Crear un proyecto NextJS usando GitHub Copilot desde cero.
 - Crear una Página de Lista de Productos y una Página de Carrito de Compras.
 
-<img src="assets/image.png" alt="Shopping Cart" height="600">
+<img src="assets/app-preview.gif" alt="Shopping Cart" height="300">
 
 
 # Desarrollo Backend
