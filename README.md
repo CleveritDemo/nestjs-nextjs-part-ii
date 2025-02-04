@@ -477,10 +477,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 export default ProductCard;
 ```
 
-> ⚠️ En caso de que Copilot no genere código para mostrar algún icono, puedes solicitarle a Copilot que te muestre cómo hacerlo.
+> ⚠️ In case Copilot does not generate code to display an icon, you can request Copilot to show you how to do it.
 
 ```plaintext
-  Cómo puedo mostrar un icono de carrito de compras en el componente de tarjeta de producto #file:ProductCard.tsx
+  How can I display a shopping cart icon in the product card component file:ProductCard.tsx?
 ```
 
 
