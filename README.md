@@ -786,9 +786,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 export default Layout;
 ```
 
-## Step 9: Create a Cart Page on Drawer
+## Step 9: Create a Cart Page in a Drawer
 
-> @workspace i want to create a drawer to see the card content using rsuite 
+> @workspace i want to create a drawer to display the card content using rsuite 
 
 - Import the necessary components from rsuite.
 - Create a state to manage the visibility of the drawer.
