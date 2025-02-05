@@ -637,7 +637,7 @@ export default ProductCard;
 - Create `src/store/useCartStore.ts`
 
 ```tsx
-import create from 'zustand';
+import { create } from 'zustand';
 
 type Product = {
   id: string;
