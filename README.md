@@ -1,4 +1,4 @@
-# Second Activity: Create Your Shopping Cart with NextJS
+Create Your Shopping Cart with NextJS
 
 - React with NextJS 
 
@@ -1000,3 +1000,4 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 ## Step 13: Add sound to the cart buttons (optional)
 
 > i want to add a sound effect when the user adds a product to the cart using useSound hook
+
