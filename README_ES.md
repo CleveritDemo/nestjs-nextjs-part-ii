@@ -1,7 +1,3 @@
-# Segunda Actividad: Crea Tu Carrito de Compras con NextJS
-
-- React con NextJS 
-
 ## Objetivos
 
 - Crear un proyecto NextJS usando GitHub Copilot desde cero.
